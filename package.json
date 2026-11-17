@@ -4,8 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run catalog",
     "dev": "vite",
+    "prebuild": "npm run catalog",
     "build": "tsc -b && vite build",
+    "catalog": "node scripts/build-catalog.ts",
+    "catalog:check": "node scripts/build-catalog.ts --check",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -20,6 +24,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "oxlint": "^1.90.0",
     "typescript": "~7.0.2",
-    "vite": "^8.3.6"
+    "vite": "^8.3.6",
+    "zod": "^4.6.7"
   }
 }

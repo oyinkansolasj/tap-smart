@@ -1,0 +1,46 @@
+{
+  "id": "revolut-ultra",
+  "issuer": "revolut",
+  "name": "Revolut Ultra",
+  "plan": "ultra",
+  "network": "visa",
+  "type": "debit",
+  "currencyId": "revpoints",
+  "fees": {
+    "annualFeePence": 0,
+    "monthlyFeePence": 5500
+  },
+  "foreignTransactionFeePercent": 0,
+  "rules": [
+    {
+      "id": "revolut-ultra-everywhere",
+      "description": "1 RevPoint per £1 on eligible card payments",
+      "match": {},
+      "earn": {
+        "type": "per_pound",
+        "units": 1,
+        "perPounds": 1,
+        "rounding": "floor"
+      },
+      "priority": 0,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": [
+          "https://www.revolut.com/ultra-plan/"
+        ],
+        "lastVerified": "2026-11-17",
+        "notes": "Rounding per transaction (floor) is assumed, not confirmed."
+      }
+    }
+  ],
+  "verification": {
+    "status": "third_party",
+    "sourceUrls": [
+      "https://www.revolut.com/ultra-plan/",
+      "https://www.pointswellmade.co.uk/post/how-to-earn-revpoints-the-complete-guide",
+      "https://voyagehacks.com/en/credit-cards/revolut/gbp/"
+    ],
+    "lastVerified": "2026-11-17",
+    "notes": "1 point per £1 appears on Revolut’s own Ultra page. Some older comparisons list £45/month. Revolut issues both Visa and Mastercard cards; network set to Visa. Weekday FX within plan limits assumed fee-free. Revolut pages blocked automated checks, so confirm in the app."
+  }
+}

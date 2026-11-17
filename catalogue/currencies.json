@@ -1,0 +1,104 @@
+[
+  {
+    "id": "natwest-rewards",
+    "name": "NatWest Rewards",
+    "kind": "cash",
+    "defaultPencePerUnit": 100,
+    "userAdjustable": false,
+    "minimumRedemptionUnits": 5,
+    "verification": {
+      "status": "confirmed",
+      "sourceUrls": [
+        "https://www.natwest.com/credit-cards/reward-credit-card.html",
+        "https://www.natwest.com/current-accounts/reward-account.html"
+      ],
+      "lastVerified": "2026-11-17",
+      "notes": "Rewards are in pounds. Bank as cash, swap for vouchers/partner points, or donate once £5 is earned."
+    }
+  },
+  {
+    "id": "amex-cashback",
+    "name": "American Express Cashback",
+    "kind": "cash",
+    "defaultPencePerUnit": 100,
+    "userAdjustable": false,
+    "verification": {
+      "status": "confirmed",
+      "sourceUrls": [
+        "https://www.americanexpress.com/en-gb/credit-cards/platinum-cashback-everyday-credit-card/"
+      ],
+      "lastVerified": "2026-11-17"
+    }
+  },
+  {
+    "id": "revpoints",
+    "name": "Revolut RevPoints",
+    "kind": "points",
+    "defaultPencePerUnit": 1,
+    "userAdjustable": true,
+    "transferPartners": [
+      {
+        "toCurrencyId": "avios",
+        "fromUnits": 1,
+        "toUnits": 1,
+        "verification": {
+          "status": "third_party",
+          "sourceUrls": [
+            "https://revpointsguide.com/how-to-convert-revpoint-to-avios-british-airways",
+            "https://www.avios.com/en-GB/collect-avios/shopping/retailers/revolut/"
+          ],
+          "lastVerified": "2026-11-17",
+          "notes": "1 RevPoint = 1 Avios (BA Club, Iberia, Vueling, Aer Lingus, Qatar). Confirm live rate in the Revolut app."
+        }
+      }
+    ],
+    "verification": {
+      "status": "third_party",
+      "sourceUrls": ["https://revpointsguide.com/revpoints-news"],
+      "lastVerified": "2026-11-17",
+      "notes": "Revolut says RevPoints have no fixed cash value. 1p default comes from the 1:1 Avios transfer at ~1p per Avios."
+    }
+  },
+  {
+    "id": "amex-membership-rewards",
+    "name": "American Express Membership Rewards",
+    "kind": "points",
+    "defaultPencePerUnit": 1,
+    "userAdjustable": true,
+    "transferPartners": [
+      {
+        "toCurrencyId": "avios",
+        "fromUnits": 1,
+        "toUnits": 1,
+        "verification": {
+          "status": "third_party",
+          "sourceUrls": [
+            "https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"
+          ],
+          "lastVerified": "2026-11-17"
+        }
+      }
+    ],
+    "verification": {
+      "status": "third_party",
+      "sourceUrls": [
+        "https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"
+      ],
+      "lastVerified": "2026-11-17",
+      "notes": "No fixed cash value. 1p default comes from the 1:1 Avios transfer."
+    }
+  },
+  {
+    "id": "avios",
+    "name": "Avios",
+    "kind": "miles",
+    "defaultPencePerUnit": 1,
+    "userAdjustable": true,
+    "verification": {
+      "status": "third_party",
+      "sourceUrls": ["https://revpointsguide.com/how-to-convert-revpoint-to-avios-british-airways"],
+      "lastVerified": "2026-11-17",
+      "notes": "Value depends heavily on the redemption. ~1p is the common rule of thumb."
+    }
+  }
+]

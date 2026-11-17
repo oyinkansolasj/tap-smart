@@ -1,0 +1,46 @@
+{
+  "id": "revolut-standard",
+  "issuer": "revolut",
+  "name": "Revolut Standard",
+  "plan": "standard",
+  "network": "visa",
+  "type": "debit",
+  "currencyId": "revpoints",
+  "fees": {
+    "annualFeePence": 0,
+    "monthlyFeePence": 0
+  },
+  "foreignTransactionFeePercent": 0,
+  "rules": [
+    {
+      "id": "revolut-standard-everywhere",
+      "description": "1 RevPoint per £10 on eligible card payments",
+      "match": {},
+      "earn": {
+        "type": "per_pound",
+        "units": 1,
+        "perPounds": 10,
+        "rounding": "floor"
+      },
+      "priority": 0,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": [
+          "https://www.pointswellmade.co.uk/post/how-to-earn-revpoints-the-complete-guide",
+          "https://voyagehacks.com/en/credit-cards/revolut/gbp/"
+        ],
+        "lastVerified": "2026-11-17",
+        "notes": "Rounding per transaction (floor) is assumed, not confirmed."
+      }
+    }
+  ],
+  "verification": {
+    "status": "third_party",
+    "sourceUrls": [
+      "https://www.pointswellmade.co.uk/post/how-to-earn-revpoints-the-complete-guide",
+      "https://voyagehacks.com/en/credit-cards/revolut/gbp/"
+    ],
+    "lastVerified": "2026-11-17",
+    "notes": "Earn rate from third-party guides. Revolut issues both Visa and Mastercard cards; network set to Visa. Weekday FX within plan limits assumed fee-free. Revolut pages blocked automated checks, so confirm in the app."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "revolut-metal",
+  "issuer": "revolut",
+  "name": "Revolut Metal",
+  "plan": "metal",
+  "network": "visa",
+  "type": "debit",
+  "currencyId": "revpoints",
+  "fees": {
+    "annualFeePence": 0,
+    "monthlyFeePence": 1499
+  },
+  "foreignTransactionFeePercent": 0,
+  "rules": [
+    {
+      "id": "revolut-metal-everywhere",
+      "description": "1 RevPoint per £2 on eligible card payments",
+      "match": {},
+      "earn": {
+        "type": "per_pound",
+        "units": 1,
+        "perPounds": 2,
+        "rounding": "floor"
+      },
+      "priority": 0,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": [
+          "https://www.pointswellmade.co.uk/post/how-to-earn-revpoints-the-complete-guide",
+          "https://voyagehacks.com/en/credit-cards/revolut/gbp/"
+        ],
+        "lastVerified": "2026-11-17",
+        "notes": "Rounding per transaction (floor) is assumed, not confirmed."
+      }
+    }
+  ],
+  "verification": {
+    "status": "third_party",
+    "sourceUrls": [
+      "https://www.pointswellmade.co.uk/post/how-to-earn-revpoints-the-complete-guide",
+      "https://voyagehacks.com/en/credit-cards/revolut/gbp/"
+    ],
+    "lastVerified": "2026-11-17",
+    "notes": "Older Revolut help page lists UK cashback (0.1% Europe / 1% outside); 2026 guides say RevPoints replaced it. Modelled as RevPoints only. Revolut issues both Visa and Mastercard cards; network set to Visa. Weekday FX within plan limits assumed fee-free. Revolut pages blocked automated checks, so confirm in the app."
+  }
+}

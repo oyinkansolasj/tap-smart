@@ -1,0 +1,34 @@
+{
+  "id": "natwest-reward-debit",
+  "issuer": "natwest",
+  "name": "NatWest Reward Current Account (debit card)",
+  "network": "visa",
+  "type": "debit",
+  "currencyId": "natwest-rewards",
+  "fees": {
+    "annualFeePence": 0,
+    "monthlyFeePence": 200,
+    "feeNotes": "£2 a month. Pays £4 a month in Rewards for 2+ Direct Debits of at least £2. That reward is not linked to card spending."
+  },
+  "foreignTransactionFeePercent": 0,
+  "rules": [
+    {
+      "id": "natwest-debit-everywhere",
+      "description": "No reward on everyday debit card spending (only MyRewards partner offers earn)",
+      "match": {},
+      "earn": { "type": "percent", "percent": 0 },
+      "priority": 0,
+      "verification": {
+        "status": "confirmed",
+        "sourceUrls": ["https://www.natwest.com/current-accounts/reward-account.html"],
+        "lastVerified": "2026-11-17"
+      }
+    }
+  ],
+  "verification": {
+    "status": "confirmed",
+    "sourceUrls": ["https://www.natwest.com/current-accounts/reward-account.html"],
+    "lastVerified": "2026-11-17",
+    "notes": "No foreign transaction fees on debit card spend abroad (not ATMs). Network (Visa) not stated on the page."
+  }
+}

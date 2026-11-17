@@ -1,0 +1,37 @@
+{
+  "id": "amex-british-airways",
+  "issuer": "amex",
+  "name": "British Airways American Express Credit Card",
+  "network": "amex",
+  "type": "credit",
+  "currencyId": "avios",
+  "fees": {
+    "annualFeePence": 0,
+    "monthlyFeePence": 0
+  },
+  "representativeAprPercent": 29.1,
+  "foreignTransactionFeePercent": 2.99,
+  "rules": [
+    {
+      "id": "amex-ba-everywhere",
+      "description": "1 Avios per £1, including British Airways purchases",
+      "match": {},
+      "earn": { "type": "per_pound", "units": 1, "perPounds": 1, "rounding": "floor" },
+      "priority": 0,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": ["https://www.clearscore.com/learn/credit-cards/british-airways-american-express-credit-card"],
+        "lastVerified": "2026-11-17"
+      }
+    }
+  ],
+  "verification": {
+    "status": "third_party",
+    "sourceUrls": [
+      "https://www.clearscore.com/learn/credit-cards/british-airways-american-express-credit-card",
+      "https://www.finder.com/uk/british-airways-american-express-credit-card"
+    ],
+    "lastVerified": "2026-11-17",
+    "notes": "The free version, not Premium Plus. Representative APR 29.1% variable is from third-party sources; Amex's comparison page (https://www.americanexpress.com/uk/compare-avios-credit-cards/) may show 31.0% variable, which could not be opened to confirm. The 2.99% non-sterling fee still needs checking on Amex's page."
+  }
+}

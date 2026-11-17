@@ -1,0 +1,47 @@
+{
+  "id": "natwest-reward-credit",
+  "issuer": "natwest",
+  "name": "NatWest Reward Credit Card",
+  "network": "mastercard",
+  "type": "credit",
+  "currencyId": "natwest-rewards",
+  "fees": {
+    "annualFeePence": 2400,
+    "monthlyFeePence": 0,
+    "feeNotes": "£24 a year, refunded if you hold a NatWest Reward current account."
+  },
+  "representativeAprPercent": 31.0,
+  "foreignTransactionFeePercent": 2.75,
+  "rules": [
+    {
+      "id": "natwest-credit-everywhere",
+      "description": "0.25% back everywhere else, including supermarket petrol stations",
+      "match": {},
+      "earn": { "type": "percent", "percent": 0.25 },
+      "priority": 0,
+      "verification": {
+        "status": "confirmed",
+        "sourceUrls": ["https://www.natwest.com/credit-cards/reward-credit-card.html"],
+        "lastVerified": "2026-11-17"
+      }
+    },
+    {
+      "id": "natwest-credit-supermarket",
+      "description": "1% back on supermarket spending (not supermarket petrol stations)",
+      "match": { "categories": ["supermarket"] },
+      "earn": { "type": "percent", "percent": 1 },
+      "priority": 10,
+      "verification": {
+        "status": "confirmed",
+        "sourceUrls": ["https://www.natwest.com/credit-cards/reward-credit-card.html"],
+        "lastVerified": "2026-11-17"
+      }
+    }
+  ],
+  "verification": {
+    "status": "confirmed",
+    "sourceUrls": ["https://www.natwest.com/credit-cards/reward-credit-card.html"],
+    "lastVerified": "2026-11-17",
+    "notes": "Earn rates, fee and APR confirmed. Network (Mastercard) and the 2.75% non-sterling fee were not on the product page and still need checking. MyRewards partner offers (1-15%) go in shop offers."
+  }
+}

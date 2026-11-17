@@ -1,0 +1,57 @@
+{
+  "id": "amex-platinum-cashback-everyday",
+  "issuer": "amex",
+  "name": "American Express Platinum Cashback Everyday Credit Card",
+  "network": "amex",
+  "type": "credit",
+  "currencyId": "amex-cashback",
+  "fees": {
+    "annualFeePence": 0,
+    "monthlyFeePence": 0
+  },
+  "representativeAprPercent": 29.1,
+  "foreignTransactionFeePercent": 2.99,
+  "minimumSpend": {
+    "minSpendPence": 300000,
+    "period": "cardmember_year"
+  },
+  "rules": [
+    {
+      "id": "amex-cashback-everywhere",
+      "description": "0.5% cashback on the first £10,000 a year, 1% above that",
+      "match": {},
+      "tiers": [
+        { "upToPence": 1000000, "earn": { "type": "percent", "percent": 0.5 } },
+        { "earn": { "type": "percent", "percent": 1 } }
+      ],
+      "tierPeriod": "cardmember_year",
+      "priority": 0,
+      "verification": {
+        "status": "confirmed",
+        "sourceUrls": ["https://www.americanexpress.com/en-gb/credit-cards/platinum-cashback-everyday-credit-card/"],
+        "lastVerified": "2026-11-17"
+      }
+    },
+    {
+      "id": "amex-cashback-intro",
+      "description": "Intro offer: 2% cashback for the first 12 months, up to £200",
+      "match": {},
+      "earn": { "type": "percent", "percent": 2 },
+      "introWindow": { "monthsFromCardOpen": 12 },
+      "cap": { "maxUnits": 200, "period": "offer_lifetime" },
+      "priority": 30,
+      "verification": {
+        "status": "confirmed",
+        "sourceUrls": ["https://www.americanexpress.com/en-gb/credit-cards/platinum-cashback-everyday-credit-card/"],
+        "lastVerified": "2026-11-17",
+        "notes": "New Cardmembers only. Ends after 12 months or once £200 is earned, whichever comes first."
+      }
+    }
+  ],
+  "verification": {
+    "status": "confirmed",
+    "sourceUrls": ["https://www.americanexpress.com/en-gb/credit-cards/platinum-cashback-everyday-credit-card/"],
+    "lastVerified": "2026-11-17",
+    "notes": "Cashback is only paid if at least £3,000 is spent in the cardmember year. The 2.99% non-sterling fee was not on the product page and still needs checking."
+  }
+}

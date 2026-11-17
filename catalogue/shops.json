@@ -1,0 +1,299 @@
+[
+  {
+    "id": "tesco",
+    "name": "Tesco",
+    "aliases": [
+      "tesco express",
+      "tesco extra",
+      "tesco metro"
+    ],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "sainsburys",
+    "name": "Sainsbury's",
+    "aliases": [
+      "sainsburys",
+      "sainsbury",
+      "sainsburys local"
+    ],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "asda",
+    "name": "Asda",
+    "aliases": [],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "morrisons",
+    "name": "Morrisons",
+    "aliases": [
+      "morrisons daily"
+    ],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "aldi",
+    "name": "Aldi",
+    "aliases": [],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "unknown"
+    }
+  },
+  {
+    "id": "lidl",
+    "name": "Lidl",
+    "aliases": [],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "unknown"
+    }
+  },
+  {
+    "id": "waitrose",
+    "name": "Waitrose",
+    "aliases": [
+      "waitrose & partners"
+    ],
+    "category": "supermarket",
+    "mcc": 5411,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "tesco-petrol",
+    "name": "Tesco Petrol Station",
+    "aliases": [
+      "tesco fuel",
+      "tesco petrol"
+    ],
+    "category": "supermarket_petrol",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "sainsburys-petrol",
+    "name": "Sainsbury's Petrol Station",
+    "aliases": [
+      "sainsburys fuel",
+      "sainsburys petrol"
+    ],
+    "category": "supermarket_petrol",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "shell",
+    "name": "Shell",
+    "aliases": [
+      "shell petrol"
+    ],
+    "category": "fuel",
+    "mcc": 5541,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "bp",
+    "name": "BP",
+    "aliases": [
+      "bp petrol"
+    ],
+    "category": "fuel",
+    "mcc": 5541,
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "tfl",
+    "name": "Transport for London",
+    "aliases": [
+      "tfl",
+      "london underground",
+      "tube",
+      "oyster",
+      "london bus"
+    ],
+    "category": "public_transport",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "trainline",
+    "name": "Trainline",
+    "aliases": [
+      "the trainline",
+      "train tickets"
+    ],
+    "category": "public_transport",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "aliases": [
+      "uber ride"
+    ],
+    "category": "taxi_rideshare",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "british-airways",
+    "name": "British Airways",
+    "aliases": [
+      "ba",
+      "britishairways"
+    ],
+    "category": "flights",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "easyjet",
+    "name": "easyJet",
+    "aliases": [
+      "easy jet"
+    ],
+    "category": "flights",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "ryanair",
+    "name": "Ryanair",
+    "aliases": [],
+    "category": "flights",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "unknown"
+    }
+  },
+  {
+    "id": "amazon",
+    "name": "Amazon UK",
+    "aliases": [
+      "amazon",
+      "amazon.co.uk"
+    ],
+    "category": "online_shopping",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "booking-com",
+    "name": "Booking.com",
+    "aliases": [
+      "booking",
+      "booking.com"
+    ],
+    "category": "hotels",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "unknown"
+    }
+  },
+  {
+    "id": "amex-travel",
+    "name": "American Express Travel",
+    "aliases": [
+      "amex travel"
+    ],
+    "category": "travel_other",
+    "acceptance": {
+      "visa": "unknown",
+      "mastercard": "unknown",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "deliveroo",
+    "name": "Deliveroo",
+    "aliases": [],
+    "category": "dining",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  },
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "aliases": [],
+    "category": "entertainment",
+    "acceptance": {
+      "visa": "yes",
+      "mastercard": "yes",
+      "amex": "yes"
+    }
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "id": "amex-preferred-rewards-gold",
+  "issuer": "amex",
+  "name": "American Express Preferred Rewards Gold Credit Card",
+  "network": "amex",
+  "type": "credit",
+  "currencyId": "amex-membership-rewards",
+  "fees": {
+    "annualFeePence": 19500,
+    "monthlyFeePence": 0,
+    "feeNotes": "No fee in the first year, then £195 a year."
+  },
+  "representativeAprPercent": 85.8,
+  "foreignTransactionFeePercent": 2.99,
+  "rules": [
+    {
+      "id": "amex-gold-everywhere",
+      "description": "1 Membership Rewards point per £1",
+      "match": {},
+      "earn": { "type": "per_pound", "units": 1, "perPounds": 1, "rounding": "floor" },
+      "priority": 0,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": ["https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"],
+        "lastVerified": "2026-11-17"
+      }
+    },
+    {
+      "id": "amex-gold-airlines",
+      "description": "2 points per £1 on flights bought directly from an airline",
+      "match": { "categories": ["flights"] },
+      "earn": { "type": "per_pound", "units": 2, "perPounds": 1, "rounding": "floor" },
+      "priority": 10,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": ["https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"],
+        "lastVerified": "2026-11-17"
+      }
+    },
+    {
+      "id": "amex-gold-foreign-currency",
+      "description": "2 points per £1 on foreign currency spending",
+      "match": { "foreignCurrency": true },
+      "earn": { "type": "per_pound", "units": 2, "perPounds": 1, "rounding": "floor" },
+      "priority": 10,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": ["https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"],
+        "lastVerified": "2026-11-17"
+      }
+    },
+    {
+      "id": "amex-gold-amex-travel",
+      "description": "3 points per £1 on Amex Travel bookings paid online",
+      "match": { "shopIds": ["amex-travel"] },
+      "earn": { "type": "per_pound", "units": 3, "perPounds": 1, "rounding": "floor" },
+      "priority": 20,
+      "verification": {
+        "status": "third_party",
+        "sourceUrls": ["https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"],
+        "lastVerified": "2026-11-17"
+      }
+    }
+  ],
+  "verification": {
+    "status": "third_party",
+    "sourceUrls": [
+      "https://www.americanexpress.com/en-gb/credit-cards/all-cards/",
+      "https://www.headforpoints.com/2026/06/06/review-american-express-preferred-rewards-gold-credit-card-amex-gold/"
+    ],
+    "lastVerified": "2026-11-17",
+    "notes": "The 85.8% APR and 'fee after the first year' are confirmed on Amex's page. Earn rates and the £195 fee are from reviews. The 2.99% non-sterling fee still needs checking."
+  }
+}
