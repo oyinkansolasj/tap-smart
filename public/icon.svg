@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Which card? app icon: a card with a tick, on solid green. Source for every PNG icon (npm run icons).
+       Square edges on purpose: phones round the corners themselves. Everything sits inside the central
+       circle (radius 205) that Android keeps when it crops an icon, so the same image works as "maskable". -->
+  <rect width="512" height="512" fill="#0b6e4f"/>
+  <rect x="122" y="160" width="268" height="184" rx="28" fill="#ffffff"/>
+  <rect x="122" y="202" width="268" height="40" fill="#0b6e4f"/>
+  <circle cx="366" cy="332" r="62" fill="#f5b84d" stroke="#0b6e4f" stroke-width="16"/>
+  <path d="M337 333 l20 20 l37 -41" fill="none" stroke="#0b6e4f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
