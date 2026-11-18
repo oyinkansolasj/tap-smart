@@ -8,6 +8,7 @@
     "dev": "vite",
     "prebuild": "npm run catalog",
     "build": "tsc -b && vite build",
+    "test": "vitest",
     "catalog": "node scripts/build-catalog.ts",
     "catalog:check": "node scripts/build-catalog.ts --check",
     "lint": "oxlint",
@@ -25,6 +26,7 @@
     "oxlint": "^1.90.0",
     "typescript": "~7.0.2",
     "vite": "^8.3.6",
+    "vitest": "^5.1.0",
     "zod": "^4.6.7"
   }
 }

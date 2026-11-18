@@ -196,3 +196,42 @@ export interface Catalogue {
   cards: Card[];
   shops: Shop[];
 }
+
+// Ranking (input and output of rank())
+
+// One purchase to rank the user's cards for. Give a shopId, a category, or both.
+// A category the user chose wins over the shop's. A guessed one never does.
+export interface Purchase {
+  amountPence: Pence;
+  shopId?: string;
+  category?: Category;
+  // True if the category was guessed (e.g. from an unknown shop name), not chosen by the user.
+  categoryIsGuess?: boolean;
+  foreignCurrency?: boolean;
+  // Defaults to today. Used for intro offers and rule/offer dates.
+  date?: IsoDate;
+}
+
+// One card's result for a purchase. rank() returns these best first.
+export interface RankedCard {
+  cardId: string;
+  // The rule that earned the reward, or null if no rule on the card matches the purchase.
+  ruleId: string | null;
+  currencyId: string;
+  // Reward in the card's own currency (£ for cash currencies, points/miles otherwise).
+  rewardUnits: number;
+  isCash: boolean;
+  // Estimated £ value of the reward in pence, adjusted for the user's goal.
+  rewardValuePence: number;
+  // Foreign transaction fee for this purchase, in pence.
+  feePence: number;
+  // What the ranking sorts by: rewardValuePence - feePence.
+  valuePence: number;
+  // Shop offers that were applied.
+  offerIds: string[];
+  // True if a cap cut the reward short.
+  capped: boolean;
+  acceptance: Acceptance;
+  // Things the user should know, e.g. a minimum annual spend.
+  warnings: string[];
+}
