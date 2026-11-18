@@ -314,6 +314,7 @@ function formatValue(pence: number): string {
   return `${Number(pence.toFixed(2))}p`;
 }
 
-function formatPounds(pence: Pence): string {
+// 300000 -> "£3,000", 1499 -> "£14.99".
+export function formatPounds(pence: Pence): string {
   return `£${(pence / 100).toLocaleString('en-GB')}`;
 }
