@@ -59,10 +59,14 @@ export function formatMoney(pence: number): string {
   return `${sign}${Number(abs.toFixed(2))}p`;
 }
 
-// The reward in the card's own currency: "£0.40 NatWest Rewards", "20 Revolut RevPoints".
+// The reward in the card's own currency, exactly as earned (no rounding):
+// "£0.40 NatWest Rewards", "£0.125 NatWest Rewards", "20 Revolut RevPoints", "12.5 Avios".
+// Up to 8 decimal places, which is as precise as rank() works to.
 export function formatReward(units: number, currency: RewardCurrency): string {
-  if (currency.kind === 'cash') return `£${units.toFixed(2)} ${currency.name}`;
-  return `${Number(units.toFixed(2)).toLocaleString('en-GB')} ${currency.name}`;
+  if (currency.kind === 'cash') {
+    return `£${units.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 8 })} ${currency.name}`;
+  }
+  return `${units.toLocaleString('en-GB', { maximumFractionDigits: 8 })} ${currency.name}`;
 }
 
 // Today's date where the user is (not UTC), as "YYYY-MM-DD".

@@ -49,6 +49,18 @@ describe('choosing the screen', () => {
     expect(await screen.findByRole('heading', { name: 'Set up' })).toBeTruthy();
   });
 
+  it('shows which card rules are in use, on setup and on the till', async () => {
+    render(<App />);
+    await screen.findByRole('heading', { name: 'Set up' });
+    expect(screen.getByRole('contentinfo').textContent).toBe('Card rules from 1 Jan 2026 · version test0001');
+
+    cleanup();
+    await addCard({ cardId: 'natwest-reward-credit' });
+    render(<App />);
+    await screen.findByRole('heading', { name: 'Which card?' });
+    expect(screen.getByRole('contentinfo').textContent).toBe('Card rules from 1 Jan 2026 · version test0001');
+  });
+
   it('shows an error if the catalogue cannot be loaded', async () => {
     serveCatalogue({}, 404);
     render(<App />);

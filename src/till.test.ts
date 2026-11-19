@@ -82,7 +82,17 @@ describe('formatting', () => {
   it('formats a reward in its own currency', () => {
     const cash = { id: 'c', name: 'NatWest Rewards', kind: 'cash' as const, defaultPencePerUnit: 100, userAdjustable: false, verification: { status: 'confirmed' as const, sourceUrls: [], lastVerified: '2026-01-01' } };
     expect(formatReward(0.4, cash)).toBe('£0.40 NatWest Rewards');
+    expect(formatReward(0, cash)).toBe('£0.00 NatWest Rewards');
     expect(formatReward(1250, { ...cash, name: 'Avios', kind: 'miles' })).toBe('1,250 Avios');
+  });
+
+  it('shows a reward exactly, without rounding it', () => {
+    const cash = { id: 'c', name: 'NatWest Rewards', kind: 'cash' as const, defaultPencePerUnit: 100, userAdjustable: false, verification: { status: 'confirmed' as const, sourceUrls: [], lastVerified: '2026-01-01' } };
+    expect(formatReward(0.125, cash)).toBe('£0.125 NatWest Rewards'); // 1% of £12.50
+    expect(formatReward(0.03125, cash)).toBe('£0.03125 NatWest Rewards'); // 0.25% of £12.50
+    expect(formatReward(1234.5, cash)).toBe('£1,234.50 NatWest Rewards');
+    expect(formatReward(12.5, { ...cash, name: 'Avios', kind: 'miles' })).toBe('12.5 Avios');
+    expect(formatReward(6.255, { ...cash, name: 'Revolut RevPoints', kind: 'points' })).toBe('6.255 Revolut RevPoints');
   });
 
   it('gives the local date, not the UTC one', () => {

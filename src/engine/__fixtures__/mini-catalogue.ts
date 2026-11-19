@@ -13,6 +13,7 @@ const testOnly: Verification = {
 
 export const miniCatalogue: Catalogue = {
   builtOn: '2026-01-01',
+  version: 'test0001',
   currencies: [
     {
       id: 'natwest-rewards',

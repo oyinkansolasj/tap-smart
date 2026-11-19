@@ -16,7 +16,7 @@ if (!catalogue) {
   process.exit(1);
 }
 
-const summary = `${catalogue.cards.length} cards, ${catalogue.currencies.length} currencies, ${catalogue.shops.length} shops (${unconfirmed} terms not yet confirmed on the issuer's site)`;
+const summary = `version ${catalogue.version}, ${catalogue.cards.length} cards, ${catalogue.currencies.length} currencies, ${catalogue.shops.length} shops (${unconfirmed} terms not yet confirmed on the issuer's site)`;
 
 if (process.argv.includes('--check')) {
   console.log(`✓ Catalogue is valid: ${summary}`);

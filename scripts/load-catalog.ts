@@ -1,5 +1,6 @@
 // Loads and checks every file in catalogue/. Used by build-catalog.ts and by the tests.
 
+import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -301,13 +302,19 @@ export async function loadCatalogue(root: string = ROOT): Promise<LoadResult> {
   if (errors.length > 0) return { errors, warnings, unconfirmed };
 
   const byId = <T extends { id: string }>(a: T, b: T) => a.id.localeCompare(b.id);
-  const catalogue: Catalogue = {
-    builtOn: today,
+  const content = {
     currencies: [...currencies].sort(byId),
     cards: [...cards].sort(byId),
     shops: [...shops].sort(byId),
   };
+  const catalogue: Catalogue = { builtOn: today, version: catalogueVersion(content), ...content };
   return { catalogue, errors, warnings, unconfirmed };
+}
+
+// First 8 hex characters of a SHA-256 of the content. The build date is left out on purpose,
+// so rebuilding unchanged rules on another day gives the same version.
+export function catalogueVersion(content: Pick<Catalogue, 'currencies' | 'cards' | 'shops'>): string {
+  return createHash('sha256').update(JSON.stringify(content)).digest('hex').slice(0, 8);
 }
 
 // A transfer loop that ends with more than it started (e.g. 1 -> 2 -> 1 gives 2 back) is a data

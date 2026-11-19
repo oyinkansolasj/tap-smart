@@ -13,6 +13,23 @@ type State =
   | { status: 'error'; message: string }
   | { status: 'ready'; catalogue: Catalogue; cardIds: string[]; preferences: UserPreferences; screen: 'setup' | 'till' };
 
+// Which card rules this phone is using: the date the catalogue was built and its version code.
+// A phone that hasn't picked up an update yet shows an older date and a different code.
+function CatalogueInfo({ catalogue }: { catalogue: Catalogue }) {
+  const date = new Date(`${catalogue.builtOn}T00:00:00Z`).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+  return (
+    <footer className="catalogue-info">
+      Card rules from {date}
+      {catalogue.version && ` · version ${catalogue.version}`}
+    </footer>
+  );
+}
+
 export default function App() {
   const [state, setState] = useState<State>({ status: 'loading' });
 
@@ -77,6 +94,7 @@ export default function App() {
       ) : (
         <TillScreen catalogue={catalogue} preferences={preferences} onChangeSetup={() => setState({ ...state, screen: 'setup' })} />
       )}
+      <CatalogueInfo catalogue={catalogue} />
     </main>
   );
 }

@@ -191,7 +191,11 @@ export interface UserCard {
 // Catalogue (everything loaded from catalogue/ data files)
 
 export interface Catalogue {
+  // The day the catalogue file was built.
   builtOn: IsoDate;
+  // Short code made from the rules, currencies and shops. It changes whenever any of them change
+  // (and only then), so two phones showing the same code are using exactly the same rules.
+  version: string;
   currencies: RewardCurrency[];
   cards: Card[];
   shops: Shop[];

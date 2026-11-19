@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import type { RewardCurrency } from '../src/engine/types.ts';
-import { findGainingTransferLoops, loadCatalogue, ROOT } from './load-catalog.ts';
+import { catalogueVersion, findGainingTransferLoops, loadCatalogue, ROOT } from './load-catalog.ts';
 
 const v = { status: 'unverified' as const, sourceUrls: [], lastVerified: '2026-01-01' };
 const currency = (id: string, partners: [to: string, from: number, toUnits: number][] = []): RewardCurrency => ({
@@ -14,6 +14,38 @@ const currency = (id: string, partners: [to: string, from: number, toUnits: numb
   userAdjustable: true,
   transferPartners: partners.map(([toCurrencyId, fromUnits, toUnits]) => ({ toCurrencyId, fromUnits, toUnits, verification: v })),
   verification: v,
+});
+
+describe('catalogue version', () => {
+  let dir: string | undefined;
+  afterEach(() => {
+    if (dir) rmSync(dir, { recursive: true, force: true });
+    dir = undefined;
+  });
+
+  it('is an 8-character code, and the same every time the same rules are built', async () => {
+    const a = (await loadCatalogue()).catalogue!;
+    const b = (await loadCatalogue()).catalogue!;
+    expect(a.version).toMatch(/^[0-9a-f]{8}$/);
+    expect(b.version).toBe(a.version);
+  });
+
+  it('does not depend on the build date', async () => {
+    const { builtOn: _, version, ...content } = (await loadCatalogue()).catalogue!;
+    expect(catalogueVersion(content)).toBe(version);
+  });
+
+  it('changes when a rule changes', async () => {
+    const before = (await loadCatalogue()).catalogue!.version;
+    dir = mkdtempSync(path.join(tmpdir(), 'catalogue-'));
+    cpSync(path.join(ROOT, 'catalogue'), path.join(dir, 'catalogue'), { recursive: true });
+    const file = path.join(dir, 'catalogue', 'cards', 'natwest-reward-credit.json');
+    writeFileSync(file, readFileSync(file, 'utf8').replace('"percent": 1', '"percent": 1.5'));
+
+    const after = await loadCatalogue(dir);
+    expect(after.errors).toEqual([]);
+    expect(after.catalogue!.version).not.toBe(before);
+  });
 });
 
 describe('circular conversions in the catalogue', () => {

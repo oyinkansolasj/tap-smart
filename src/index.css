@@ -434,3 +434,14 @@ legend {
   color: var(--warn);
   font-size: 0.875rem;
 }
+
+/* Which card rules this phone is using */
+
+.catalogue-info {
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8125rem;
+  text-align: center;
+}
